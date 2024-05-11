@@ -21,6 +21,11 @@ class Item(BaseModel):
 API_SERVER_URL = os.getenv("API_SERVER_URL", default="http://localhost:8010")
 
 
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
 @app.get("/items/{item_id}", response_model=Item)
 def read_item(item_id: int, q: Union[str, None] = None):
     try:
