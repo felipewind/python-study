@@ -12,7 +12,8 @@ def test_read_item():
         httpretty.GET,
         "http://localhost:8010/items/1",
         body='{"name": "Sample Item", "price": 100.0, "is_offer": null}',
-        content_type="application/json"
+        content_type="application/json",
+        status=200  # Define the expected status code
     )
 
     # Call the endpoint
